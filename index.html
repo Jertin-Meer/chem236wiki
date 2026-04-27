@@ -275,6 +275,42 @@
       margin-top: 3px;
     }
 
+    /* ── Lightbox ── */
+    .img-zoom { cursor: zoom-in; }
+    .mol-zoom { cursor: zoom-in; }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.6);
+      background: #fff;
+      padding: 8px;
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 16px;
+      right: 22px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      user-select: none;
+      background: none;
+      border: none;
+    }
+    #lightbox-close:hover { color: #ccc; }
+
     /* ── Responsive ── */
     @media (max-width: 720px) {
       .infobox { float: none; width: 100%; margin: 0 0 16px 0; }
@@ -309,7 +345,7 @@
       <div class="infobox" role="complementary" aria-label="Infobox: Green chemistry in medicinal chemistry">
         <div class="infobox-title">Green chemistry in medicinal chemistry</div>
         <div class="infobox-mol-img">
-          <img src="assets/6-Aminopenicillanic_acid.svg"
+          <img src="assets/6-Aminopenicillanic_acid.svg" class="mol-zoom"
                alt="Skeletal formula of 6-aminopenicillanic acid (6-APA)" />
           <div class="mol-caption">
             Structure of 6-aminopenicillanic acid (6-APA), the β-lactam core used to prepare semisynthetic penicillins.
@@ -411,7 +447,7 @@
 
       <!-- ══ FIGURE 1 – Overview ══ -->
       <figure class="wiki-figure center" aria-label="Figure 1">
-        <img src="assets/fig1_overview.png"
+        <img src="assets/fig1_overview.png" class="img-zoom"
              alt="Concept map linking green chemistry decision points — atom economy, reagent hazard, purification, catalysis, solvent burden, and lifecycle view — to the medicinal chemistry target."
              width="680" />
         <figcaption>
@@ -490,7 +526,7 @@
 
       <!-- ── Figure 2 – Metrics panel ── -->
       <figure class="wiki-figure float-right" aria-label="Figure 2">
-        <img src="assets/fig2_metrics.png"
+        <img src="assets/fig2_metrics.png" class="img-zoom"
              alt="Three-column panel showing formulas and descriptions for atom economy, E-factor, and PMI, each with measures, useful-for, and limitation notes."
              width="320" />
         <figcaption>
@@ -591,7 +627,7 @@
 
       <!-- ── Figure 4 – Design comparison ── -->
       <figure class="wiki-figure float-right" aria-label="Figure 4">
-        <img src="assets/fig3_comparison.png"
+        <img src="assets/fig3_comparison.png" class="img-zoom"
              alt="Two-column route-design comparison: traditional risk points (stoichiometric reagent, chlorinated solvent, heavy-metal residue, multiple isolations, salt by-products, higher PMI) versus greener design choices (catalytic step, safer solvent, catalyst recovery, telescoped steps, fewer separations, lower PMI)."
              width="320" />
         <figcaption>
@@ -712,28 +748,28 @@
       <!-- Molecule gallery: Pen G → 6-APA → products -->
       <div class="molecule-gallery" role="figure" aria-label="Penicillin G acylase reaction: substrate and products">
         <figure>
-          <img src="assets/Penicillin_G.svg" alt="Skeletal formula of penicillin G" />
+          <img src="assets/Penicillin_G.svg" class="mol-zoom" alt="Skeletal formula of penicillin G" />
           <figcaption>
             <span class="mol-name">Penicillin G</span>
             Substrate
           </figcaption>
         </figure>
         <figure>
-          <img src="assets/6-Aminopenicillanic_acid.svg" alt="Skeletal formula of 6-aminopenicillanic acid" />
+          <img src="assets/6-Aminopenicillanic_acid.svg" class="mol-zoom" alt="Skeletal formula of 6-aminopenicillanic acid" />
           <figcaption>
             <span class="mol-name">6-APA</span>
             Enzymatic product
           </figcaption>
         </figure>
         <figure>
-          <img src="assets/Amoxicillin.svg" alt="Skeletal formula of amoxicillin" />
+          <img src="assets/Amoxicillin.svg" class="mol-zoom" alt="Skeletal formula of amoxicillin" />
           <figcaption>
             <span class="mol-name">Amoxicillin</span>
             Semisynthetic product
           </figcaption>
         </figure>
         <figure>
-          <img src="assets/Ampicillin_Structural_Formulae_V1.svg" alt="Skeletal formula of ampicillin" />
+          <img src="assets/Ampicillin_Structural_Formulae_V1.svg" class="mol-zoom" alt="Skeletal formula of ampicillin" />
           <figcaption>
             <span class="mol-name">Ampicillin</span>
             Semisynthetic product
@@ -921,5 +957,45 @@
   </div><!-- /article-body -->
 </div><!-- /content-wrap -->
 
+<!-- ── Lightbox overlay ── -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button id="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script>
+(function () {
+  const lb     = document.getElementById('lightbox');
+  const lbImg  = document.getElementById('lightbox-img');
+  const lbClose = document.getElementById('lightbox-close');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('open');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  // Attach to all zoomable images
+  document.querySelectorAll('.img-zoom, .mol-zoom').forEach(function(img) {
+    img.addEventListener('click', function() {
+      open(img.src, img.alt);
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) close();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+</script>
 </body>
 </html>
