@@ -213,6 +213,68 @@
       padding-left: 1.6em;
     }
 
+    /* ── Molecule gallery ── */
+    .molecule-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+      background: #f8f9fa;
+      border: 1px solid #a2a9b1;
+      padding: 12px;
+    }
+    .molecule-gallery figure {
+      margin: 0;
+      text-align: center;
+      background: #fff;
+      border: 1px solid #c8ccd1;
+      padding: 8px 6px 6px;
+    }
+    .molecule-gallery img {
+      width: 100%;
+      height: 110px;
+      object-fit: contain;
+      display: block;
+    }
+    .molecule-gallery figcaption {
+      font-size: 0.82rem;
+      color: #202122;
+      margin-top: 5px;
+      font-style: italic;
+    }
+    .molecule-gallery figcaption .mol-name {
+      display: block;
+      font-style: normal;
+      font-weight: bold;
+    }
+
+    /* ── Infobox molecule image ── */
+    .infobox-mol-img {
+      width: 100%;
+      background: #fff;
+      padding: 8px;
+      border-bottom: 1px solid #a2a9b1;
+      text-align: center;
+    }
+    .infobox-mol-img img {
+      max-width: 200px;
+      max-height: 130px;
+      object-fit: contain;
+    }
+    .infobox-mol-img .mol-caption {
+      font-size: 0.78rem;
+      color: #54595d;
+      margin-top: 4px;
+    }
+
+    /* ── Source attribution ── */
+    .source-attr {
+      display: block;
+      font-size: 0.78rem;
+      color: #72777d;
+      margin-top: 3px;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 720px) {
       .infobox { float: none; width: 100%; margin: 0 0 16px 0; }
@@ -224,6 +286,7 @@
       }
       #article-body { flex-direction: column; }
       #toc { max-width: 100%; }
+      .molecule-gallery { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -245,6 +308,14 @@
       <!-- ══ INFOBOX ══ -->
       <div class="infobox" role="complementary" aria-label="Infobox: Green chemistry in medicinal chemistry">
         <div class="infobox-title">Green chemistry in medicinal chemistry</div>
+        <div class="infobox-mol-img">
+          <img src="assets/6-Aminopenicillanic_acid.svg"
+               alt="Skeletal formula of 6-aminopenicillanic acid (6-APA)" />
+          <div class="mol-caption">
+            Structure of 6-aminopenicillanic acid (6-APA), the β-lactam core used to prepare semisynthetic penicillins.
+            <span class="source-attr">Image: Wikimedia Commons, public domain.</span>
+          </div>
+        </div>
         <table>
           <tr>
             <td>Field</td>
@@ -346,6 +417,7 @@
         <figcaption>
           <b>Figure 1.</b> Overview of green chemistry priorities in medicinal chemistry, linking reaction
           design to waste, hazard, solvent, catalysis, and lifecycle considerations.
+          <span class="source-attr">Original diagram created for this article.</span>
         </figcaption>
       </figure>
 
@@ -423,6 +495,7 @@
         <figcaption>
           <b>Figure 2.</b> Common metrics used to evaluate greener pharmaceutical syntheses:
           atom economy, E-factor, and process mass intensity.
+          <span class="source-attr">Original diagram created for this article.</span>
         </figcaption>
       </figure>
 
@@ -523,6 +596,7 @@
         <figcaption>
           <b>Figure 3.</b> Comparison of common risk points in medicinal-chemistry routes with
           greener design choices.
+          <span class="source-attr">Original diagram created for this article.</span>
         </figcaption>
       </figure>
 
@@ -624,17 +698,6 @@
       <!-- ══ 4. CASE STUDY ══ -->
       <h2 class="section-heading" id="casestudy">4&nbsp;&nbsp;Case study: 6-aminopenicillanic acid</h2>
 
-      <!-- Figure 3 – 6APA biocatalysis -->
-      <figure class="wiki-figure float-right" aria-label="Figure 3">
-        <img src="assets/topic6_6apa_biocatalysis_case.svg"
-             alt="Reaction schematic from penicillin G to 6-APA and then to amoxicillin."
-             width="320" />
-        <figcaption>
-          <b>Figure 4.</b> Penicillin G acylase converts penicillin G into 6-APA, a key intermediate
-          used to make semisynthetic beta-lactam antibiotics such as amoxicillin.
-        </figcaption>
-      </figure>
-
       <p>
         6-Aminopenicillanic acid (6-APA) is the bicyclic beta-lactam–thiazolidine core produced by
         cleaving the phenylacetyl side chain from penicillin G (benzylpenicillin). It is the key
@@ -642,6 +705,42 @@
         ampicillin, amoxicillin, and several first-generation cephalosporins, all of which are
         produced by reacylating 6-APA with different side chains.<sup><a href="#ref7">[7]</a></sup>
         Annual industrial production of 6-APA is estimated at thousands of tonnes.
+      </p>
+
+      <!-- Molecule gallery: Pen G → 6-APA → products -->
+      <div class="molecule-gallery" role="figure" aria-label="Penicillin G acylase reaction: substrate and products">
+        <figure>
+          <img src="assets/Penicillin_G.svg" alt="Skeletal formula of penicillin G" />
+          <figcaption>
+            <span class="mol-name">Penicillin G</span>
+            Substrate
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/6-Aminopenicillanic_acid.svg" alt="Skeletal formula of 6-aminopenicillanic acid" />
+          <figcaption>
+            <span class="mol-name">6-APA</span>
+            Enzymatic product
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/Amoxicillin.svg" alt="Skeletal formula of amoxicillin" />
+          <figcaption>
+            <span class="mol-name">Amoxicillin</span>
+            Semisynthetic product
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/Ampicillin_Structural_Formulae_V1.svg" alt="Skeletal formula of ampicillin" />
+          <figcaption>
+            <span class="mol-name">Ampicillin</span>
+            Semisynthetic product
+          </figcaption>
+        </figure>
+      </div>
+      <p style="font-size:0.82rem; color:#54595d; margin-top:-8px; margin-bottom:14px;">
+        <b>Figure 5.</b> Penicillin G is hydrolyzed by penicillin G acylase to form 6-APA, which is then reacylated to produce semisynthetic β-lactam antibiotics such as amoxicillin and ampicillin.
+        <span class="source-attr">Images: Wikimedia Commons, public domain.</span>
       </p>
 
       <h3 class="section-heading" id="casestudy-enz">4.1&nbsp;&nbsp;The enzymatic route and its green credentials</h3>
