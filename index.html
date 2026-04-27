@@ -257,6 +257,31 @@
       margin-bottom: 4px;
     }
 
+    /* ── Figure caption block (below gallery) ── */
+    .fig-caption-block {
+      font-size: 0.82rem;
+      color: #54595d;
+      border: 1px solid #a2a9b1;
+      background: #f8f9fa;
+      padding: 6px 10px;
+      margin-top: -1px;
+      line-height: 1.45;
+    }
+
+    /* ── Metrics table wrapper ── */
+    .metrics-table-wrap {
+      margin: 14px 0;
+      border: 1px solid #a2a9b1;
+      background: #f8f9fa;
+      padding: 10px 12px 8px;
+    }
+    .metrics-table-title {
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+    .metrics-tbl { font-size: 0.84rem; }
+    .metrics-tbl th, .metrics-tbl td { padding: 5px 8px; }
+
     /* ── Comparison table ── */
     .comparison-table {
       width: 100%;
@@ -413,8 +438,8 @@
           <img src="assets/6-Aminopenicillanic_acid.svg" class="mol-zoom"
                alt="Skeletal formula of 6-aminopenicillanic acid (6-APA)" />
           <div class="mol-caption">
-            Structure of 6-aminopenicillanic acid (6-APA), the β-lactam core used to prepare semisynthetic penicillins.
-            <span class="source-attr">Image: Wikimedia Commons, public domain.</span>
+            6-Aminopenicillanic acid (6-APA)
+            <span class="source-attr">Wikimedia Commons, public domain.</span>
           </div>
         </div>
         <table>
@@ -518,19 +543,35 @@
         </ol>
       </nav>
 
-      <!-- ══ FIGURE 1 – Overview ══ -->
-      <figure class="wiki-figure center" aria-label="Figure 1">
-        <img src="assets/fig1_overview.png" class="img-zoom"
-             alt="Concept map linking green chemistry decision points — atom economy, reagent hazard, purification, catalysis, solvent burden, and lifecycle view — to the medicinal chemistry target."
-             width="680" />
-        <figcaption>
-          <b>Figure 1.</b> Major decision points in applying green chemistry to medicinal chemistry. Route
-          design is evaluated using mass efficiency, solvent choice, reagent hazard, catalysis strategy,
-          purification burden, and lifecycle considerations. Quantitative evaluation uses AE, E-factor, PMI,
-          yield, and hazard score.
-          <span class="source-attr">Original diagram created for this article.</span>
-        </figcaption>
-      </figure>
+      <!-- ══ FIGURE 1 – β-lactam molecule gallery ══ -->
+      <div class="molecule-gallery" role="figure" aria-label="Figure 1: β-lactam structures">
+        <figure>
+          <img src="assets/Penicillin_G.svg" class="mol-zoom"
+               alt="Skeletal formula of penicillin G (benzylpenicillin)" />
+          <figcaption><span class="mol-name">Penicillin G</span>Fermentation substrate</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/6-Aminopenicillanic_acid.svg" class="mol-zoom"
+               alt="Skeletal formula of 6-aminopenicillanic acid (6-APA)" />
+          <figcaption><span class="mol-name">6-APA</span>Enzymatic product; synthetic core</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/Amoxicillin.svg" class="mol-zoom"
+               alt="Skeletal formula of amoxicillin" />
+          <figcaption><span class="mol-name">Amoxicillin</span>Semisynthetic β-lactam</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/Ampicillin_Structural_Formulae_V1.svg" class="mol-zoom"
+               alt="Skeletal formula of ampicillin" />
+          <figcaption><span class="mol-name">Ampicillin</span>Semisynthetic β-lactam</figcaption>
+        </figure>
+      </div>
+      <p class="fig-caption-block">
+        <b>Figure 1.</b> Representative β-lactam structures relevant to the 6-APA case study.
+        Penicillin G is the fermentation-derived substrate; penicillin G acylase converts it to
+        6-APA, which is reacylated to give semisynthetic antibiotics such as amoxicillin and ampicillin.
+        <span class="source-attr">Images: Wikimedia Commons, public domain.</span>
+      </p>
 
       <!-- ══ 1. BACKGROUND ══ -->
       <h2 class="section-heading" id="background">1&nbsp;&nbsp;Background</h2>
@@ -626,18 +667,45 @@
         complete environmental assessment.<sup><a href="#ref1">[1]</a><a href="#ref3">[3]</a></sup>
       </p>
 
-      <!-- ── Figure 2 – Metrics panel ── -->
-      <figure class="wiki-figure float-right" aria-label="Figure 2">
-        <img src="assets/fig2_metrics.png" class="img-zoom"
-             alt="Three-column panel showing formulas and descriptions for atom economy, E-factor, and PMI, each with measures, useful-for, and limitation notes."
-             width="320" />
-        <figcaption>
-          <b>Figure 2.</b> Common mass-based metrics used in pharmaceutical route evaluation. Atom economy
-          is calculated from a balanced equation; E-factor and PMI are calculated from experimental or
-          process material inputs and include solvent contributions.
-          <span class="source-attr">Original diagram created for this article.</span>
-        </figcaption>
-      </figure>
+      <!-- ── Figure 2 – Metrics HTML table ── -->
+      <div class="metrics-table-wrap">
+        <p class="metrics-table-title"><b>Table 1.</b> Mass-based metrics used in pharmaceutical route evaluation</p>
+        <table class="comparison-table metrics-tbl">
+          <thead>
+            <tr>
+              <th style="background:#eaf3fb;color:#2a5f8f;">Metric</th>
+              <th style="background:#eaf3fb;color:#2a5f8f;">Formula</th>
+              <th style="background:#eaf3fb;color:#2a5f8f;">What it measures</th>
+              <th style="background:#eaf3fb;color:#2a5f8f;">Key limitation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Atom economy (AE)</b></td>
+              <td><i>MW<sub>product</sub> / ΣMW<sub>reactants</sub> × 100%</i></td>
+              <td>Theoretical fraction of reactant atoms incorporated into product</td>
+              <td>Ignores solvent, excess reagents, actual yield, and toxicity</td>
+            </tr>
+            <tr>
+              <td><b>E-factor</b></td>
+              <td><i>mass waste / mass product</i></td>
+              <td>Waste generated per unit of product (from experimental data)</td>
+              <td>Waste definition varies; does not weight by hazard</td>
+            </tr>
+            <tr>
+              <td><b>Process mass intensity (PMI)</b></td>
+              <td><i>total mass input / mass product</i></td>
+              <td>Overall material use per unit of product; PMI = E-factor + 1</td>
+              <td>Does not directly reflect reagent toxicity or energy use</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.8rem;color:#54595d;margin-top:4px;">
+          All three metrics are mass-based and should be used together with solvent EHS scores,
+          reagent hazard data, and energy consumption for a complete process assessment.
+          <sup><a href="#ref3">[3]</a><a href="#ref6">[6]</a></sup>
+        </p>
+      </div>
 
       <h3 class="section-heading" id="ae">2.1&nbsp;&nbsp;Atom economy</h3>
       <p>
@@ -733,16 +801,17 @@
       <!-- ══ 3. APPLICATIONS ══ -->
       <h2 class="section-heading" id="applications">3&nbsp;&nbsp;Applications in medicinal chemistry</h2>
 
-      <!-- ── Figure 3 – Design comparison ── -->
-      <figure class="wiki-figure float-right" aria-label="Figure 3">
-        <img src="assets/fig3_comparison.png" class="img-zoom"
-             alt="Two-column route-design comparison: traditional risk points (stoichiometric reagent, chlorinated solvent, heavy-metal residue, multiple isolations, salt by-products, higher PMI) versus greener design choices (catalytic step, safer solvent, catalyst recovery, telescoped steps, fewer separations, lower PMI)."
-             width="320" />
+      <!-- ── Figure 2 – Amoxicillin synthesis scheme ── -->
+      <figure class="wiki-figure float-right" aria-label="Figure 2: Amoxicillin synthesis scheme">
+        <img src="assets/Amoxicillin_Synthesis_V4.svg" class="img-zoom"
+             alt="Reaction scheme showing one possible synthetic route to amoxicillin from common starting materials"
+             width="340" />
         <figcaption>
-          <b>Figure 3.</b> Comparison of common risk points in medicinal-chemistry synthesis and
-          corresponding greener design strategies. The actual environmental benefit depends on
-          measured process data, not on route design alone.
-          <span class="source-attr">Original diagram created for this article.</span>
+          <b>Figure 2.</b> A representative synthetic route to amoxicillin. The scheme illustrates
+          bond-forming steps, reagent choices, and intermediate structures relevant to green route
+          assessment. Solvent selection, protecting-group count, and step number are key variables
+          in PMI calculations for such routes.
+          <span class="source-attr">Image: Wikimedia Commons, public domain. Creator: Dr. Jörgi.</span>
         </figcaption>
       </figure>
 
@@ -877,41 +946,19 @@
         tonnes per year.
       </p>
 
-      <!-- Molecule gallery: Pen G → 6-APA → products -->
-      <div class="molecule-gallery" role="figure" aria-label="Penicillin G acylase reaction: substrate and products">
-        <figure>
-          <img src="assets/Penicillin_G.svg" class="mol-zoom" alt="Skeletal formula of penicillin G" />
-          <figcaption>
-            <span class="mol-name">Penicillin G</span>
-            Substrate
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="assets/6-Aminopenicillanic_acid.svg" class="mol-zoom" alt="Skeletal formula of 6-aminopenicillanic acid" />
-          <figcaption>
-            <span class="mol-name">6-APA</span>
-            Enzymatic product
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Amoxicillin.svg" class="mol-zoom" alt="Skeletal formula of amoxicillin" />
-          <figcaption>
-            <span class="mol-name">Amoxicillin</span>
-            Semisynthetic product
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Ampicillin_Structural_Formulae_V1.svg" class="mol-zoom" alt="Skeletal formula of ampicillin" />
-          <figcaption>
-            <span class="mol-name">Ampicillin</span>
-            Semisynthetic product
-          </figcaption>
-        </figure>
-      </div>
-      <p style="font-size:0.82rem; color:#54595d; margin-top:-8px; margin-bottom:14px;">
-        <b>Figure 5.</b> Penicillin G is hydrolyzed by penicillin G acylase to form 6-APA, which is then reacylated to produce semisynthetic β-lactam antibiotics such as amoxicillin and ampicillin.
-        <span class="source-attr">Images: Wikimedia Commons, public domain.</span>
-      </p>
+      <!-- ── Figure 3 – 6-APA 3D model ── -->
+      <figure class="wiki-figure float-right" aria-label="Figure 3: 3D model of 6-APA">
+        <img src="assets/6-APA-3D-balls.png" class="img-zoom"
+             alt="Three-dimensional ball-and-stick model of 6-aminopenicillanic acid showing the fused β-lactam and thiazolidine rings"
+             width="280" />
+        <figcaption>
+          <b>Figure 3.</b> Three-dimensional ball-and-stick representation of 6-aminopenicillanic
+          acid (6-APA). The fused bicyclic system consists of a four-membered β-lactam ring and
+          a five-membered thiazolidine ring. The free amine (N) at C-6 is the site reacylated
+          in semisynthetic β-lactam production.
+          <span class="source-attr">Image: Wikimedia Commons, public domain. Creator: Benjah-bmm27.</span>
+        </figcaption>
+      </figure>
 
       <h3 class="section-heading" id="casestudy-enz">4.2&nbsp;&nbsp;The enzymatic route</h3>
       <p>
