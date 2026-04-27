@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green chemistry in medicinal chemistry – Chem236 Wiki</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'Linux Libertine', 'Georgia', 'Times New Roman', serif;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: #202122;
+      background: #fff;
+    }
+    a { color: #3366cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    sup a { color: #3366cc; font-size: 0.75em; }
+
+    /* ── Page chrome ── */
+    #site-header {
+      background: #fff;
+      border-bottom: 1px solid #a7d7f9;
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    #site-header .site-name {
+      font-family: 'Linux Libertine', 'Georgia', serif;
+      font-size: 1.25rem;
+      color: #54595d;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+    }
+    #site-header .site-name span { color: #000; font-weight: bold; }
+
+    /* ── Layout ── */
+    #content-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 16px 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Article header ── */
+    #article-title {
+      font-family: 'Linux Libertine', 'Georgia', serif;
+      font-size: 2rem;
+      font-weight: normal;
+      border-bottom: 1px solid #a2a9b1;
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .page-subtitle {
+      font-size: 0.85rem;
+      color: #54595d;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    /* ── Article body columns ── */
+    #article-body {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    #article-main { flex: 1 1 0; min-width: 0; }
+
+    /* ── Infobox ── */
+    .infobox {
+      float: right;
+      clear: right;
+      margin: 0 0 16px 20px;
+      border: 1px solid #a2a9b1;
+      background: #f8f9fa;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      width: 280px;
+      border-collapse: collapse;
+    }
+    .infobox-title {
+      background: #cee0f2;
+      text-align: center;
+      font-weight: bold;
+      padding: 6px 8px;
+      font-size: 0.92rem;
+      border-bottom: 1px solid #a2a9b1;
+    }
+    .infobox table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .infobox td {
+      padding: 4px 8px;
+      vertical-align: top;
+      border-top: 1px solid #eaecf0;
+    }
+    .infobox td:first-child {
+      font-weight: bold;
+      white-space: nowrap;
+      color: #54595d;
+      width: 38%;
+    }
+
+    /* ── Table of contents ── */
+    #toc {
+      background: #f8f9fa;
+      border: 1px solid #a2a9b1;
+      padding: 10px 16px;
+      display: inline-block;
+      min-width: 200px;
+      max-width: 340px;
+      margin: 0 0 18px 0;
+      font-size: 0.875rem;
+    }
+    #toc .toc-title {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    #toc ol { padding-left: 20px; }
+    #toc ol ol { padding-left: 18px; list-style-type: decimal; }
+    #toc li { margin: 2px 0; }
+    #toc a { color: #202122; }
+    #toc a:hover { color: #3366cc; }
+
+    /* ── Sections ── */
+    .section-heading {
+      font-family: 'Linux Libertine', 'Georgia', serif;
+      font-weight: normal;
+      border-bottom: 1px solid #a2a9b1;
+      margin: 22px 0 8px;
+      padding-bottom: 3px;
+    }
+    h2.section-heading { font-size: 1.45rem; }
+    h3.section-heading { font-size: 1.15rem; border-bottom: none; margin-top: 14px; }
+    h4.section-heading { font-size: 1rem; border-bottom: none; font-style: italic; margin-top: 10px; }
+
+    p { margin-bottom: 10px; }
+
+    /* ── Figures ── */
+    .wiki-figure {
+      border: 1px solid #a2a9b1;
+      background: #f8f9fa;
+      padding: 6px;
+      margin: 14px auto;
+      display: table;
+      font-size: 0.82rem;
+      color: #54595d;
+      line-height: 1.4;
+    }
+    .wiki-figure.float-right {
+      float: right;
+      clear: right;
+      margin: 0 0 14px 18px;
+      max-width: 340px;
+    }
+    .wiki-figure.float-left {
+      float: left;
+      clear: left;
+      margin: 0 18px 14px 0;
+      max-width: 340px;
+    }
+    .wiki-figure.center {
+      clear: both;
+      max-width: 680px;
+    }
+    .wiki-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .wiki-figure figcaption {
+      display: table-caption;
+      caption-side: bottom;
+      padding-top: 5px;
+    }
+    .clearfix::after { content: ''; display: block; clear: both; }
+
+    /* ── Reference list ── */
+    #references-list {
+      font-size: 0.84rem;
+      padding-left: 0;
+      list-style: none;
+    }
+    #references-list li {
+      padding: 3px 0 3px 28px;
+      text-indent: -28px;
+      border-top: 1px solid #eaecf0;
+    }
+    #references-list li:first-child { border-top: none; }
+    .ref-num {
+      font-weight: bold;
+      margin-right: 4px;
+      color: #54595d;
+    }
+
+    /* ── See also ── */
+    .see-also-list { padding-left: 22px; }
+    .see-also-list li { margin: 3px 0; }
+
+    /* ── Hatnote / notice ── */
+    .hatnote {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #54595d;
+      margin-bottom: 10px;
+      padding-left: 1.6em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .infobox { float: none; width: 100%; margin: 0 0 16px 0; }
+      .wiki-figure.float-right,
+      .wiki-figure.float-left {
+        float: none;
+        margin: 14px auto;
+        max-width: 100%;
+      }
+      #article-body { flex-direction: column; }
+      #toc { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Site header ── -->
+<header id="site-header">
+  <div class="site-name"><span>Chem236</span>Wiki &nbsp;·&nbsp; Course Encyclopedia</div>
+</header>
+
+<!-- ── Content wrapper ── -->
+<div id="content-wrap">
+  <h1 id="article-title">Green chemistry in medicinal chemistry</h1>
+  <p class="page-subtitle">From Chem236 Course Wiki, the free chemistry encyclopedia</p>
+
+  <div id="article-body">
+    <div id="article-main">
+
+      <!-- ══ INFOBOX ══ -->
+      <div class="infobox" role="complementary" aria-label="Infobox: Green chemistry in medicinal chemistry">
+        <div class="infobox-title">Green chemistry in medicinal chemistry</div>
+        <table>
+          <tr>
+            <td>Field</td>
+            <td>Organic chemistry; medicinal chemistry; pharmaceutical chemistry</td>
+          </tr>
+          <tr>
+            <td>Main goals</td>
+            <td>Waste prevention; safer synthesis; atom economy; safer solvents; catalysis; lifecycle thinking</td>
+          </tr>
+          <tr>
+            <td>Key metrics</td>
+            <td>Atom economy (AE); E-factor; process mass intensity (PMI)</td>
+          </tr>
+          <tr>
+            <td>Example case</td>
+            <td>6-Aminopenicillanic acid (6-APA) via penicillin G acylase</td>
+          </tr>
+          <tr>
+            <td>Related topics</td>
+            <td>Sustainable chemistry; biocatalysis; process chemistry; late-stage functionalization</td>
+          </tr>
+        </table>
+      </div>
+      <!-- /infobox -->
+
+      <!-- ══ LEAD SECTION ══ -->
+      <p>
+        <b>Green chemistry in medicinal chemistry</b> refers to the application of green chemistry principles—originally
+        articulated by Anastas and Warner in 1998<sup><a href="#ref1">[1]</a></sup>—to the design, synthesis, and
+        manufacture of biologically active molecules and pharmaceutical compounds. The central aim is to reduce
+        waste, minimize the use of hazardous reagents and solvents, improve atom efficiency, and lower overall
+        environmental impact while maintaining or improving the yield and quality of drug candidates and
+        active pharmaceutical ingredients (APIs).<sup><a href="#ref2">[2]</a></sup>
+      </p>
+      <p>
+        Medicinal chemistry is recognized as a particularly high-impact area for green chemistry reform because
+        pharmaceutical synthesis historically generates large amounts of solvent waste, relies on stoichiometric
+        reagents with poor atom economy, and produces significant quantities of toxic by-products relative to
+        the mass of product obtained.<sup><a href="#ref3">[3]</a></sup> Quantitative metrics such as atom economy
+        (AE), the E-factor, and process mass intensity (PMI) have been developed to measure and compare the
+        environmental footprint of synthetic routes.<sup><a href="#ref1">[1]</a></sup>
+      </p>
+      <p>
+        Key strategies employed within this field include the use of catalysis and biocatalysis, alternative
+        and renewable solvents, metal-free functionalization reactions, multicomponent reactions, and continuous
+        processing. A widely cited example is the enzymatic production of 6-aminopenicillanic acid (6-APA), a
+        key intermediate in semisynthetic beta-lactam antibiotics, using immobilized penicillin G acylase—a
+        route that replaces earlier solvent-intensive chemical hydrolysis with an aqueous, enzyme-catalyzed
+        process.<sup><a href="#ref7">[7]</a></sup>
+      </p>
+      <p>
+        Despite considerable progress, the field faces ongoing challenges. Green metrics do not always capture
+        full lifecycle toxicity or energy demands, and approaches that work at laboratory discovery scale may
+        not be readily transferable to industrial manufacturing scale. Critical evaluation of claimed
+        environmental benefits remains essential.<sup><a href="#ref3">[3]</a></sup>
+      </p>
+
+      <!-- ══ TABLE OF CONTENTS ══ -->
+      <nav id="toc" aria-label="Contents">
+        <div class="toc-title">Contents</div>
+        <ol>
+          <li><a href="#background">Background</a>
+            <ol>
+              <li><a href="#definition">Definition of green chemistry</a></li>
+              <li><a href="#twelve-principles">The 12 principles</a></li>
+              <li><a href="#why-medchem">Why medicinal chemistry is a high-impact area</a></li>
+            </ol>
+          </li>
+          <li><a href="#metrics">Key concepts and metrics</a>
+            <ol>
+              <li><a href="#ae">Atom economy</a></li>
+              <li><a href="#efactor">E-factor</a></li>
+              <li><a href="#pmi">Process mass intensity</a></li>
+              <li><a href="#solvents-toxicity">Solvent toxicity and solvent amount</a></li>
+              <li><a href="#reagent-toxicity">Reagent toxicity and by-product formation</a></li>
+            </ol>
+          </li>
+          <li><a href="#applications">Applications in medicinal chemistry</a>
+            <ol>
+              <li><a href="#catalysis">Catalysis and biocatalysis</a></li>
+              <li><a href="#alt-solvents">Water and alternative solvents</a></li>
+              <li><a href="#metal-free">Metal-free and late-stage functionalization</a></li>
+              <li><a href="#onepot">One-pot and multicomponent reactions</a></li>
+              <li><a href="#continuous">Continuous processing and process intensification</a></li>
+            </ol>
+          </li>
+          <li><a href="#casestudy">Case study: 6-aminopenicillanic acid</a></li>
+          <li><a href="#limitations">Limitations and critical assessment</a></li>
+          <li><a href="#seealso">See also</a></li>
+          <li><a href="#references">References</a></li>
+        </ol>
+      </nav>
+
+      <!-- ══ FIGURE 1 – Overview ══ -->
+      <figure class="wiki-figure center" aria-label="Figure 1">
+        <img src="assets/topic6_green_medchem_overview.svg"
+             alt="Concept map linking green chemistry principles to medicinal chemistry goals."
+             width="680" />
+        <figcaption>
+          <b>Figure 1.</b> Overview of green chemistry priorities in medicinal chemistry, linking reaction
+          design to waste, hazard, solvent, catalysis, and lifecycle considerations.
+        </figcaption>
+      </figure>
+
+      <!-- ══ 1. BACKGROUND ══ -->
+      <h2 class="section-heading" id="background">1&nbsp;&nbsp;Background</h2>
+
+      <h3 class="section-heading" id="definition">1.1&nbsp;&nbsp;Definition of green chemistry</h3>
+      <p>
+        Green chemistry, also called sustainable chemistry, is a design philosophy that seeks to eliminate
+        or reduce the generation of hazardous substances in the design, manufacture, and application of
+        chemical products and processes.<sup><a href="#ref5">[5]</a></sup> It was formally introduced by
+        Paul Anastas and John Warner in their 1998 monograph, which systematized the field around twelve
+        guiding principles. Unlike pollution control, which deals with waste after it is already formed,
+        green chemistry targets the source: the molecular design of reactions and processes.<sup><a href="#ref4">[4]</a></sup>
+      </p>
+      <p>
+        The approach is not limited to environmental stewardship. Economic and safety benefits often coincide:
+        using less solvent reduces raw-material costs; fewer toxic reagents lower exposure risks; higher atom
+        efficiency means less material is discarded as waste.<sup><a href="#ref1">[1]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="twelve-principles">1.2&nbsp;&nbsp;The 12 principles</h3>
+      <p>
+        The twelve principles of green chemistry, as listed by the American Chemical Society, include: (1)
+        waste prevention; (2) atom economy; (3) less hazardous chemical syntheses; (4) designing safer
+        chemicals; (5) safer solvents and auxiliaries; (6) design for energy efficiency; (7) use of
+        renewable feedstocks; (8) reduction of derivatives; (9) catalysis; (10) design for degradation;
+        (11) real-time analysis for pollution prevention; and (12) inherently safer chemistry for accident
+        prevention.<sup><a href="#ref5">[5]</a></sup>
+      </p>
+      <p>
+        In practice, pharmaceutical chemists most frequently cite principles 1–3, 5, 9, and 10 as directly
+        relevant to synthetic route design.<sup><a href="#ref3">[3]</a></sup> Not all twelve principles
+        can be simultaneously maximized in every synthesis; trade-offs between cost, yield, safety, and
+        environmental impact are common and must be evaluated on a case-by-case basis.
+      </p>
+
+      <h3 class="section-heading" id="why-medchem">1.3&nbsp;&nbsp;Why medicinal chemistry is a high-impact area</h3>
+      <p>
+        The pharmaceutical industry has been identified as one of the most solvent- and waste-intensive
+        manufacturing sectors in the chemical industry. Studies from the 1990s and 2000s reported
+        E-factors—ratios of waste mass to product mass—on the order of 25–100 kg waste per kg API for
+        fine chemicals, with individual drug syntheses occasionally exceeding 100.<sup><a href="#ref1">[1]</a></sup>
+        By comparison, bulk petrochemicals typically have E-factors below 5.
+      </p>
+      <p>
+        This disparity reflects several features of pharmaceutical synthesis: multi-step routes with
+        cumulative yield losses; heavy use of organic solvents for reactions, workups, and purification;
+        stoichiometric use of reagents such as protecting groups that are later removed; and the small
+        scale of early drug discovery campaigns, where process optimization is not prioritized.
+        <sup><a href="#ref2">[2]</a></sup> The high number of synthetic steps also amplifies the
+        importance of each individual step's efficiency.
+      </p>
+      <p>
+        The scale at which active pharmaceutical ingredients are eventually manufactured—sometimes
+        hundreds of tonnes per year for blockbuster drugs—means that even modest improvements in
+        solvent choice or step count can have substantial aggregate environmental and economic
+        consequences.<sup><a href="#ref3">[3]</a></sup>
+      </p>
+
+      <!-- ══ 2. KEY CONCEPTS AND METRICS ══ -->
+      <h2 class="section-heading" id="metrics">2&nbsp;&nbsp;Key concepts and metrics</h2>
+      <p>
+        Several quantitative metrics have been proposed to evaluate and compare the greenness of
+        synthetic routes. Each captures a different aspect of resource efficiency or waste generation,
+        and no single metric provides a complete picture.
+        <sup><a href="#ref1">[1]</a><a href="#ref3">[3]</a></sup>
+      </p>
+
+      <!-- ── Figure 2 – Metrics panel ── -->
+      <figure class="wiki-figure float-right" aria-label="Figure 2">
+        <img src="assets/topic6_green_metrics_panel.svg"
+             alt="Three formula boxes defining atom economy, E-factor, and PMI."
+             width="320" />
+        <figcaption>
+          <b>Figure 2.</b> Common metrics used to evaluate greener pharmaceutical syntheses:
+          atom economy, E-factor, and process mass intensity.
+        </figcaption>
+      </figure>
+
+      <h3 class="section-heading" id="ae">2.1&nbsp;&nbsp;Atom economy</h3>
+      <p>
+        Atom economy (AE), introduced by Barry Trost in 1991, is defined as the molecular weight of
+        the desired product divided by the sum of the molecular weights of all reactants, expressed as
+        a percentage:<sup><a href="#ref1">[1]</a></sup>
+      </p>
+      <p style="padding-left:2em; font-style:italic;">
+        AE = (MW<sub>product</sub> / &sum;MW<sub>reactants</sub>) &times; 100%
+      </p>
+      <p>
+        A reaction with AE = 100% incorporates every atom of every reactant into the product. Addition
+        reactions such as Diels–Alder cycloadditions approach this ideal. In contrast, substitution
+        reactions that generate stoichiometric salt by-products, or reactions that require protecting
+        group installation and removal, have inherently lower AE. Atom economy is a theoretical
+        calculation based on the balanced equation; it does not account for solvents, reagents
+        used in excess, or actual yield, so it should be used alongside other metrics.
+        <sup><a href="#ref4">[4]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="efactor">2.2&nbsp;&nbsp;E-factor</h3>
+      <p>
+        The E-factor, introduced by Roger Sheldon, measures the ratio of the total mass of waste generated
+        to the mass of product obtained:<sup><a href="#ref1">[1]</a></sup>
+      </p>
+      <p style="padding-left:2em; font-style:italic;">
+        E-factor = mass of waste (kg) / mass of product (kg)
+      </p>
+      <p>
+        Unlike atom economy, the E-factor is calculated from real experimental data and includes solvents
+        used in reaction workups and purification. A lower E-factor indicates a more efficient, less
+        wasteful process. Importantly, standard E-factor calculations do not always account for
+        water used as solvent (some versions exclude water; others include it), and they do not
+        weight waste by toxicity—equal masses of sodium chloride and a chlorinated solvent are
+        counted identically.<sup><a href="#ref3">[3]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="pmi">2.3&nbsp;&nbsp;Process mass intensity</h3>
+      <p>
+        Process mass intensity (PMI) is defined as the total mass of all materials used in a process
+        divided by the mass of the desired product:<sup><a href="#ref3">[3]</a></sup>
+      </p>
+      <p style="padding-left:2em; font-style:italic;">
+        PMI = total mass of materials (kg) / mass of product (kg)
+      </p>
+      <p>
+        PMI = E-factor + 1, because materials include both what ends up in the product and what becomes
+        waste. The ACS Green Chemistry Institute Pharmaceutical Roundtable has adopted PMI as its
+        preferred metric because it can be calculated consistently across organizations and is inclusive
+        of all inputs—solvents, reagents, water, and catalysts.<sup><a href="#ref6">[6]</a></sup>
+        Industry benchmarks suggest a PMI below 100 is a reasonable target for API synthesis, with
+        values below 10 considered very efficient.
+      </p>
+
+      <h3 class="section-heading" id="solvents-toxicity">2.4&nbsp;&nbsp;Solvent toxicity and solvent amount</h3>
+      <p>
+        Solvents typically constitute the largest fraction of the total mass of materials used in
+        pharmaceutical synthesis—often 80–90% of the PMI value.<sup><a href="#ref6">[6]</a></sup>
+        Consequently, solvent selection and solvent reduction have an outsized effect on overall
+        process greenness. Solvent guides published by the ACS GCI Pharmaceutical Roundtable and by
+        major pharmaceutical companies classify solvents by their environmental, health, and safety
+        (EHS) profiles.<sup><a href="#ref6">[6]</a></sup> Preferred solvents include water, ethanol,
+        isopropanol, ethyl acetate, and 2-methyltetrahydrofuran (2-MeTHF). Solvents to avoid include
+        dichloromethane, dimethylformamide (DMF), dimethyl sulfoxide (DMSO) in large quantities, and
+        chlorinated aromatic solvents.
+      </p>
+      <p>
+        It should be noted that solvent preference can conflict with other synthetic objectives: some
+        reactions require polar aprotic solvents for adequate reactivity, and switching to a greener
+        solvent may require re-optimization of reaction conditions.
+        <sup><a href="#ref2">[2]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="reagent-toxicity">2.5&nbsp;&nbsp;Reagent toxicity and by-product formation</h3>
+      <p>
+        Beyond solvents, the selection of reagents affects both hazard and waste. Stoichiometric
+        oxidants such as chromium trioxide or potassium permanganate generate toxic metallic
+        by-products; catalytic alternatives—including TEMPO-mediated oxidations and enzymatic
+        oxidations—can reduce both waste and hazard.<sup><a href="#ref1">[1]</a></sup> Similarly,
+        classic reducing agents such as lithium aluminum hydride or sodium borohydride can in
+        some cases be replaced by asymmetric transfer hydrogenation or biocatalytic reductions,
+        which are amenable to aqueous conditions and generate less reactive waste.
+        <sup><a href="#ref2">[2]</a></sup>
+      </p>
+
+      <div class="clearfix"></div>
+
+      <!-- ══ 3. APPLICATIONS ══ -->
+      <h2 class="section-heading" id="applications">3&nbsp;&nbsp;Applications in medicinal chemistry</h2>
+
+      <!-- ── Figure 4 – Design comparison ── -->
+      <figure class="wiki-figure float-right" aria-label="Figure 4">
+        <img src="assets/topic6_green_design_comparison.svg"
+             alt="Two-column comparison of risk points and greener design choices."
+             width="320" />
+        <figcaption>
+          <b>Figure 3.</b> Comparison of common risk points in medicinal-chemistry routes with
+          greener design choices.
+        </figcaption>
+      </figure>
+
+      <h3 class="section-heading" id="catalysis">3.1&nbsp;&nbsp;Catalysis and biocatalysis</h3>
+      <p>
+        Catalysis is explicitly identified in Principle 9 of the twelve principles of green chemistry
+        as preferable to stoichiometric reagents, because a catalyst is regenerated at the end of
+        each catalytic cycle and therefore generates less waste per unit of product.
+        <sup><a href="#ref5">[5]</a></sup> In pharmaceutical synthesis, homogeneous transition-metal
+        catalysis—including palladium-catalyzed cross-coupling reactions such as Suzuki, Heck, and
+        Buchwald–Hartwig couplings—has largely displaced earlier stoichiometric methods for
+        forming C–C and C–N bonds.<sup><a href="#ref2">[2]</a></sup>
+      </p>
+      <p>
+        Biocatalysis, the use of enzymes or whole cells as catalysts, has attracted particular
+        attention because enzymes are biodegradable, often operate in water at mild temperatures,
+        and can achieve high enantioselectivity without stoichiometric chiral auxiliaries.
+        <sup><a href="#ref1">[1]</a></sup> Advances in protein engineering and directed evolution
+        have expanded the substrate scope of enzymes far beyond their natural substrates.
+        Applications include ketoreductases for asymmetric ketone reduction, transaminases for
+        reductive amination, and acylases for selective hydrolysis—all steps that are common in
+        drug synthesis.<sup><a href="#ref7">[7]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="alt-solvents">3.2&nbsp;&nbsp;Water and alternative solvents</h3>
+      <p>
+        Water is the most abundant, cheapest, and most environmentally benign solvent available.
+        Several classes of reactions have been shown to proceed efficiently in aqueous media, including
+        Diels–Alder reactions, certain aldol condensations, and some organocatalytic reactions.
+        <sup><a href="#ref4">[4]</a></sup> However, many organic substrates of pharmaceutical
+        interest have poor water solubility, limiting direct substitution.
+      </p>
+      <p>
+        Alternative solvents under investigation include: <i>supercritical carbon dioxide</i>
+        (scCO<sub>2</sub>), which leaves no solvent residue and can be recycled; <i>ionic liquids</i>,
+        which have negligible vapor pressure but raise concerns about aquatic toxicity and
+        biodegradability; <i>bio-derived solvents</i> such as 2-MeTHF (from furfural) and
+        cyrene (from cellulose); and <i>deep eutectic solvents</i> (DES), which are generally
+        low-cost and biodegradable.<sup><a href="#ref1">[1]</a></sup> Each alternative involves
+        trade-offs in cost, availability, reactivity, and safety that require evaluation before adoption.
+      </p>
+
+      <h3 class="section-heading" id="metal-free">3.3&nbsp;&nbsp;Metal-free and late-stage functionalization</h3>
+      <p>
+        A complementary approach to catalysis is to design reactions that avoid transition metals
+        entirely, particularly when metal residues in the final API could pose regulatory and
+        safety issues.<sup><a href="#ref2">[2]</a></sup> Metal-free late-stage functionalization
+        (LSF) refers to reactions that install or modify functional groups directly on an advanced
+        intermediate or even the final drug candidate, bypassing earlier synthetic steps and
+        thereby reducing overall step count, waste, and solvent use.
+        <sup><a href="#ref2">[2]</a></sup>
+      </p>
+      <p>
+        Examples include photocatalytic C–H functionalization, electrochemical oxidative coupling,
+        and organocatalytic asymmetric transformations. LSF is particularly valuable in drug
+        discovery, where small collections of analogs are needed rapidly: a single late-stage
+        transformation on a shared scaffold can replace multiple separate syntheses.
+        <sup><a href="#ref2">[2]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="onepot">3.4&nbsp;&nbsp;One-pot and multicomponent reactions</h3>
+      <p>
+        One-pot reactions combine multiple bond-forming events in a single vessel without isolation
+        of intermediates. Multicomponent reactions (MCRs), such as the Ugi reaction or the
+        Biginelli condensation, incorporate three or more reactants into a single product in a
+        convergent manner.<sup><a href="#ref4">[4]</a></sup> These strategies can substantially
+        reduce solvent use (no intermediate workup), decrease the number of synthetic steps, and
+        improve overall yield. They are particularly suited to rapidly generating diverse sets of
+        drug candidates in discovery campaigns.
+      </p>
+      <p>
+        Tandem or cascade reactions, in which the product of one catalytic cycle serves directly as
+        the substrate for the next, similarly improve overall process efficiency by avoiding
+        isolation and purification steps. However, designing compatible reaction conditions for
+        multiple sequential transformations in one pot requires careful optimization.
+        <sup><a href="#ref1">[1]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="continuous">3.5&nbsp;&nbsp;Continuous processing and process intensification</h3>
+      <p>
+        Continuous flow chemistry, in which reactants are pumped through a reactor rather than
+        processed in discrete batches, can improve heat and mass transfer, allow the safe use of
+        reactive or hazardous intermediates at small instantaneous volumes, and facilitate
+        automation and real-time monitoring.<sup><a href="#ref3">[3]</a></sup> These features
+        can reduce solvent inventory, improve yield consistency, and decrease energy consumption
+        relative to batch processes.
+      </p>
+      <p>
+        Several pharmaceutical manufacturers have reported the use of continuous processing for
+        hazardous reaction steps—such as diazotizations, nitrations, and hydrogenations—where
+        the small reactor volume reduces risk and waste. Regulatory agencies have increasingly
+        accepted continuous manufacturing for API production, and process intensification through
+        flow chemistry is now considered an important tool in green pharmaceutical process
+        development.<sup><a href="#ref3">[3]</a></sup>
+      </p>
+
+      <div class="clearfix"></div>
+
+      <!-- ══ 4. CASE STUDY ══ -->
+      <h2 class="section-heading" id="casestudy">4&nbsp;&nbsp;Case study: 6-aminopenicillanic acid</h2>
+
+      <!-- Figure 3 – 6APA biocatalysis -->
+      <figure class="wiki-figure float-right" aria-label="Figure 3">
+        <img src="assets/topic6_6apa_biocatalysis_case.svg"
+             alt="Reaction schematic from penicillin G to 6-APA and then to amoxicillin."
+             width="320" />
+        <figcaption>
+          <b>Figure 4.</b> Penicillin G acylase converts penicillin G into 6-APA, a key intermediate
+          used to make semisynthetic beta-lactam antibiotics such as amoxicillin.
+        </figcaption>
+      </figure>
+
+      <p>
+        6-Aminopenicillanic acid (6-APA) is the bicyclic beta-lactam–thiazolidine core produced by
+        cleaving the phenylacetyl side chain from penicillin G (benzylpenicillin). It is the key
+        synthetic precursor to a broad range of semisynthetic beta-lactam antibiotics, including
+        ampicillin, amoxicillin, and several first-generation cephalosporins, all of which are
+        produced by reacylating 6-APA with different side chains.<sup><a href="#ref7">[7]</a></sup>
+        Annual industrial production of 6-APA is estimated at thousands of tonnes.
+      </p>
+
+      <h3 class="section-heading" id="casestudy-enz">4.1&nbsp;&nbsp;The enzymatic route and its green credentials</h3>
+      <p>
+        The classical chemical method for producing 6-APA required protecting the carboxyl and amino
+        groups of penicillin G before deacylation, followed by deprotection—a sequence that consumed
+        large amounts of anhydrous organic solvents (typically methylene chloride and dimethylaniline)
+        at low temperatures (−40 °C), and generated phosphorylated or silylated by-products.
+        <sup><a href="#ref7">[7]</a></sup>
+      </p>
+      <p>
+        The enzymatic route uses immobilized <i>penicillin G acylase</i> (PGA; also called penicillin
+        amidase, EC 3.5.1.11), most commonly from <i>Escherichia coli</i>, to hydrolyze the phenylacetyl
+        amide bond selectively under mild aqueous conditions at approximately pH 7.5 and 25–35 °C, with
+        no organic solvent required for the hydrolysis step itself.<sup><a href="#ref7">[7]</a></sup>
+        The enzyme is typically immobilized on an inert support, allowing it to be recovered and reused
+        over many reaction cycles, which reduces both the cost contribution of the biocatalyst and the
+        quantity of biological waste generated.
+      </p>
+      <p>
+        Compared with the chemical route, the enzymatic process has been reported to use significantly
+        less solvent per kilogram of 6-APA produced and to eliminate the need for cryogenic conditions.
+        It has become the dominant industrial process for 6-APA manufacture.<sup><a href="#ref7">[7]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="casestudy-nuance">4.2&nbsp;&nbsp;A balanced assessment</h3>
+      <p>
+        While the enzymatic route for 6-APA production is widely cited as a successful green chemistry
+        application, a complete assessment requires consideration of factors beyond the reaction step
+        itself. Relevant questions include: what solvents are used in downstream purification and
+        crystallization? What is the energy input for fermentation of the enzyme-producing microorganism?
+        What is the lifetime and disposal path of the immobilized enzyme support? What is the yield
+        relative to available penicillin G feedstock? How are the phenylacetic acid by-product and
+        the aqueous waste streams treated?
+        <sup><a href="#ref3">[3]</a></sup>
+      </p>
+      <p>
+        These questions illustrate a general principle: demonstrating that a reaction step uses water
+        instead of organic solvent is necessary but not sufficient to conclude that a process is green.
+        Full lifecycle and PMI analyses that cover the entire manufacturing route, including raw material
+        sourcing, energy use, and waste treatment, are required for a comprehensive evaluation.
+        <sup><a href="#ref1">[1]</a></sup>
+      </p>
+
+      <div class="clearfix"></div>
+
+      <!-- ══ 5. LIMITATIONS ══ -->
+      <h2 class="section-heading" id="limitations">5&nbsp;&nbsp;Limitations and critical assessment</h2>
+      <p>
+        The adoption of green chemistry principles in medicinal chemistry has been uneven, and several
+        conceptual and practical limitations deserve acknowledgment.
+      </p>
+
+      <h3 class="section-heading" id="lim-metrics">5.1&nbsp;&nbsp;Metrics do not capture full impact</h3>
+      <p>
+        Atom economy, E-factor, and PMI are all mass-based metrics: they measure how much material
+        is used or wasted, but they do not inherently reflect the toxicity, persistence, or
+        bioaccumulation potential of the materials involved.<sup><a href="#ref3">[3]</a></sup>
+        One kilogram of a persistent organic pollutant and one kilogram of table salt contribute
+        equally to the E-factor. Incorporating hazard weighting—for instance, through EHS scores
+        or life-cycle assessment (LCA)—can provide a more informative picture but requires more
+        data and more complex analysis.<sup><a href="#ref4">[4]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="lim-yield">5.2&nbsp;&nbsp;High yield is not the same as green</h3>
+      <p>
+        A reaction that proceeds in excellent chemical yield may still be environmentally costly if
+        it requires large solvent volumes, energy-intensive conditions, or stoichiometric toxic
+        reagents. Conversely, a lower-yielding reaction can be greener overall if it avoids
+        hazardous materials and reduces waste. Conflating reaction yield with process greenness is
+        a common source of misleading claims in the primary literature.<sup><a href="#ref1">[1]</a></sup>
+      </p>
+
+      <h3 class="section-heading" id="lim-scale">5.3&nbsp;&nbsp;Discovery scale versus manufacturing scale</h3>
+      <p>
+        Discovery-phase medicinal chemists typically work at milligram to gram scale and prioritize
+        speed and diversity of analogs over synthetic efficiency. Green chemistry considerations are
+        often secondary at this stage, and routes are designed with chemistry that is reliable and
+        well-understood, not necessarily optimized.<sup><a href="#ref2">[2]</a></sup> Process
+        chemistry—the discipline that prepares a candidate drug for clinical trials and manufacturing—is
+        where systematic route redesign and optimization for PMI, solvent, and waste usually occur.
+        Expecting discovery chemistry to meet manufacturing-scale green standards imposes unrealistic
+        constraints on early research.
+      </p>
+
+      <h3 class="section-heading" id="lim-feasibility">5.4&nbsp;&nbsp;Practical barriers to adoption</h3>
+      <p>
+        Some green alternatives may be technically superior on environmental metrics but remain costly,
+        difficult to procure, or challenging to scale. Enzymes for biocatalysis require optimization
+        for each new substrate; alternative solvents may require re-validation of reaction conditions;
+        continuous flow equipment requires capital investment and operator training. Regulatory agencies
+        also require extensive process validation data, which can slow the adoption of novel process
+        chemistries even when environmental benefits are clear.<sup><a href="#ref3">[3]</a></sup>
+      </p>
+      <p>
+        Additionally, a greener synthetic route that gives lower purity or introduces new impurities
+        may not be acceptable if those impurities compromise drug safety or efficacy—a constraint that
+        does not apply to commodity chemical production.<sup><a href="#ref1">[1]</a></sup>
+      </p>
+
+      <!-- ══ SEE ALSO ══ -->
+      <h2 class="section-heading" id="seealso">6&nbsp;&nbsp;See also</h2>
+      <ul class="see-also-list">
+        <li>Green chemistry</li>
+        <li>Atom economy</li>
+        <li>E-factor (chemistry)</li>
+        <li>Biocatalysis</li>
+        <li>Process chemistry</li>
+        <li>Beta-lactam antibiotics</li>
+        <li>Penicillin G acylase</li>
+        <li>Continuous manufacturing (pharmaceuticals)</li>
+        <li>Life-cycle assessment</li>
+        <li>Late-stage functionalization</li>
+      </ul>
+
+      <!-- ══ REFERENCES ══ -->
+      <h2 class="section-heading" id="references">7&nbsp;&nbsp;References</h2>
+      <ol id="references-list">
+        <li id="ref1">
+          <span class="ref-num">[1]</span>
+          Kar, S.; Sanderson, H.; Roy, K.; Benfenati, E.; Leszczynski, J. "Green Chemistry in the
+          Synthesis of Pharmaceuticals." <i>Chemical Reviews</i> <b>2022</b>, <i>122</i>(3),
+          3637–3710. DOI:&nbsp;<a href="https://doi.org/10.1021/acs.chemrev.1c00631" target="_blank" rel="noopener">10.1021/acs.chemrev.1c00631</a>.
+        </li>
+        <li id="ref2">
+          <span class="ref-num">[2]</span>
+          Lasso, J. D.; Castillo-Pazos, D. J.; Li, C.-J. "Green chemistry meets medicinal chemistry:
+          a perspective on modern metal-free late-stage functionalization reactions."
+          <i>Chemical Society Reviews</i> <b>2021</b>, <i>50</i>, 10955–10982.
+          DOI:&nbsp;<a href="https://doi.org/10.1039/D1CS00380A" target="_blank" rel="noopener">10.1039/D1CS00380A</a>.
+        </li>
+        <li id="ref3">
+          <span class="ref-num">[3]</span>
+          Becker, J.; Manske, C.; Randl, S. "Green chemistry and sustainability metrics in the
+          pharmaceutical manufacturing sector." <i>Current Opinion in Green and Sustainable
+          Chemistry</i> <b>2022</b>, <i>33</i>, 100562.
+          DOI:&nbsp;<a href="https://doi.org/10.1016/j.cogsc.2021.100562" target="_blank" rel="noopener">10.1016/j.cogsc.2021.100562</a>.
+        </li>
+        <li id="ref4">
+          <span class="ref-num">[4]</span>
+          Zlotin, S. G.; Egorova, K. S.; Ananikov, V. P.; et al. "The green chemistry paradigm in
+          modern organic synthesis." <i>Russian Chemical Reviews</i> <b>2024</b>, <i>92</i>(12),
+          RCR5104.
+          DOI:&nbsp;<a href="https://doi.org/10.59761/RCR5104" target="_blank" rel="noopener">10.59761/RCR5104</a>.
+        </li>
+        <li id="ref5">
+          <span class="ref-num">[5]</span>
+          American Chemical Society. "12 Principles of Green Chemistry."
+          <a href="https://www.acs.org/greenchemistry/principles/12-principles-of-green-chemistry.html"
+             target="_blank" rel="noopener">acs.org/greenchemistry</a>.
+          Retrieved 2026.
+        </li>
+        <li id="ref6">
+          <span class="ref-num">[6]</span>
+          ACS Green Chemistry Institute Pharmaceutical Roundtable. "Solvent Selection Guide."
+          <a href="https://www.acsgcipr.org/" target="_blank" rel="noopener">acsgcipr.org</a>.
+          Retrieved 2026.
+        </li>
+        <li id="ref7">
+          <span class="ref-num">[7]</span>
+          Tishkov, V. I.; Savin, S. S.; Yasnaya, A. S. "Protein Engineering of Penicillin Acylase."
+          <i>Acta Naturae</i> <b>2010</b>, <i>2</i>(3), 47–61.
+          PMID:&nbsp;21152216; PMC:&nbsp;3347614.
+        </li>
+      </ol>
+
+      <!-- ── page footer ── -->
+      <hr style="margin-top:28px; border:none; border-top:1px solid #a2a9b1;" />
+      <p style="font-size:0.78rem; color:#54595d; margin-top:8px;">
+        This page was created as an original educational resource for Chem&nbsp;236. Diagrams
+        (Figures&nbsp;1–4) are original works created for this project and are not reproduced
+        from journal articles. All citations refer to publicly available peer-reviewed literature.
+      </p>
+
+    </div><!-- /article-main -->
+  </div><!-- /article-body -->
+</div><!-- /content-wrap -->
+
+</body>
+</html>
