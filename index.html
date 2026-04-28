@@ -520,6 +520,7 @@
               <li><a href="#pmi">Process mass intensity</a></li>
               <li><a href="#solvents-toxicity">Solvent selection</a></li>
               <li><a href="#reagent-toxicity">Reagent choice and by-product formation</a></li>
+              <li><a href="#mass-balance">Mass balance and material accounting</a></li>
             </ol>
           </li>
           <li><a href="#applications">Applications in medicinal chemistry</a>
@@ -529,6 +530,8 @@
               <li><a href="#metal-free">Metal-free and late-stage functionalization</a></li>
               <li><a href="#onepot">One-pot and multicomponent reactions</a></li>
               <li><a href="#continuous">Continuous flow processing</a></li>
+              <li><a href="#systematic-design">Systematic route design</a></li>
+              <li><a href="#renewable">Renewable feedstocks and design for degradation</a></li>
             </ol>
           </li>
           <li><a href="#casestudy">Case study: 6-aminopenicillanic acid</a>
@@ -803,6 +806,111 @@
         reagent-mediated methods.<sup><a href="#ref4">[4]</a></sup>
       </p>
 
+      <!-- ── Reagent class table (§2.5) ── -->
+      <div class="metrics-table-wrap" style="margin-top:14px;">
+        <p class="metrics-table-title"><b>Table 2.</b> Common reagent classes in pharmaceutical synthesis, their associated waste issues, and greener alternatives.<sup><a href="#ref1">[1]</a><a href="#ref2">[2]</a></sup></p>
+        <table class="comparison-table metrics-tbl">
+          <thead>
+            <tr>
+              <th style="background:#eaecf0;color:#202122;">Reagent class</th>
+              <th style="background:#eaecf0;color:#202122;">Common issue</th>
+              <th style="background:#eaecf0;color:#202122;">Greener strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chromium(VI) oxidants (PCC, CrO<sub>3</sub>)</td>
+              <td>Toxic metal waste; hazardous chromate residues</td>
+              <td>Catalytic oxidation (TEMPO/NaOCl, Pd–O<sub>2</sub>); enzymatic oxidases</td>
+            </tr>
+            <tr>
+              <td>Stoichiometric hydride reagents (LiAlH<sub>4</sub>, NaBH<sub>4</sub>)</td>
+              <td>Reactive residues; anhydrous workup required; large aqueous waste on quench</td>
+              <td>Catalytic hydrogenation; transfer hydrogenation; ketoreductases</td>
+            </tr>
+            <tr>
+              <td>Coupling reagents (HATU, EDC, DCC)</td>
+              <td>Stoichiometric urea or active-ester by-products per amide bond formed</td>
+              <td>Direct amidation; enzymatic acylation; improved coupling reagent design</td>
+            </tr>
+            <tr>
+              <td>Halogenating reagents</td>
+              <td>Persistent or corrosive by-products; HX waste</td>
+              <td>Catalytic or electrochemical halogenation; electrophilic halogenation with recoverable halogen sources</td>
+            </tr>
+            <tr>
+              <td>Heavy-metal catalysts (Pd, Rh, Ru)</td>
+              <td>Residual metal limits in APIs; purification burden for removal</td>
+              <td>Recoverable and immobilized catalysts; metal-free LSF; scavenger-assisted removal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="section-heading" id="mass-balance">2.6&nbsp;&nbsp;Mass balance and material accounting</h3>
+      <p>
+        A complete route assessment tracks not only yield and total waste but also where each input
+        ends up in the process: as product, by-product, solvent waste, aqueous waste, recovered
+        reagent, unrecovered catalyst, or purge stream. This material accounting is the basis of
+        PMI and E-factor calculations and identifies which inputs contribute most to the waste
+        burden.<sup><a href="#ref3">[3]</a></sup>
+      </p>
+      <p>
+        Solvents typically account for 80–90% of total material input in pharmaceutical synthesis,
+        making them the dominant PMI term in most routes.<sup><a href="#ref6">[6]</a></sup>
+        Reagents may be smaller in mass but dominate the hazard contribution. Catalysts, even when
+        used sub-stoichiometrically, must be removed from the product and their disposal accounted
+        for. Aqueous wash and crystallization streams contribute to wastewater treatment loads.
+        By-products that can be recovered or repurposed reduce the net waste burden; those requiring
+        incineration or special treatment add cost and environmental impact.
+      </p>
+
+      <!-- ── Mass balance table (§2.6) ── -->
+      <div class="metrics-table-wrap" style="margin-top:14px;">
+        <p class="metrics-table-title"><b>Table 3.</b> Input categories in pharmaceutical route accounting and their green chemistry relevance.<sup><a href="#ref1">[1]</a><a href="#ref3">[3]</a></sup></p>
+        <table class="comparison-table metrics-tbl">
+          <thead>
+            <tr>
+              <th style="background:#eaecf0;color:#202122;">Input category</th>
+              <th style="background:#eaecf0;color:#202122;">Where it appears in route accounting</th>
+              <th style="background:#eaecf0;color:#202122;">Green chemistry relevance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Reactants</td>
+              <td>Product or by-products</td>
+              <td>Determines atom economy; unreacted starting material adds to E-factor</td>
+            </tr>
+            <tr>
+              <td>Solvents</td>
+              <td>Reaction, extraction, chromatography, crystallization</td>
+              <td>Often dominates PMI; hazard ranking affects EHS score independently of mass</td>
+            </tr>
+            <tr>
+              <td>Reagents</td>
+              <td>Product, salt waste, or spent reagent stream</td>
+              <td>Stoichiometric reagents generate proportional waste; hazard must be assessed separately from mass</td>
+            </tr>
+            <tr>
+              <td>Catalysts</td>
+              <td>Recovered, retained in product, or removed in purification</td>
+              <td>Metal residue limits in APIs drive purification burden; lifetime and reuse cycles affect per-kg catalyst cost</td>
+            </tr>
+            <tr>
+              <td>Aqueous streams</td>
+              <td>Washes, crystallization mother liquors, fermentation broth</td>
+              <td>Dissolved organics or salts affect wastewater treatment load and cost</td>
+            </tr>
+            <tr>
+              <td>By-products</td>
+              <td>Isolated, recycled, or discarded</td>
+              <td>Recoverable by-products (e.g., phenylacetic acid from PGA hydrolysis) reduce net waste; non-recoverable ones add treatment cost</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <div class="clearfix"></div>
 
       <!-- ══ 3. APPLICATIONS ══ -->
@@ -814,10 +922,10 @@
              alt="Reaction scheme showing one possible synthetic route to amoxicillin from common starting materials"
              width="340" />
         <figcaption>
-          <b>Figure 2.</b> Representative synthetic route to amoxicillin. The scheme illustrates
-          bond-forming steps, reagent choices, and intermediate structures relevant to green route
-          assessment. Solvent selection, protecting-group count, and step number are key PMI variables
-          in such routes. Click to enlarge.
+          <b>Figure 2.</b> Representative synthetic route to amoxicillin. The scheme is shown as a
+          structural reference for semisynthetic β-lactam preparation, not as a complete green-process
+          assessment. In route evaluation, solvent choice, protecting-group count, yield, isolation
+          steps, and by-product recovery would all need to be measured. Click to enlarge.
           <span class="source-attr">Image: <a href="https://commons.wikimedia.org/wiki/File:Amoxicillin_Sythesis_V4.svg" target="_blank" rel="noopener">Wikimedia Commons</a>, public domain; simple structural formula / reaction scheme. Creator: Dr. Jörgi. [<a href="#medM5">M5</a>]</span>
         </figcaption>
       </figure>
@@ -926,9 +1034,96 @@
         has grown.<sup><a href="#ref3">[3]</a></sup>
       </p>
 
-      <!-- ── Table 2 – Route design comparison ── -->
+      <h3 class="section-heading" id="systematic-design">3.6&nbsp;&nbsp;Systematic route design</h3>
+      <p>
+        Systematic route design evaluates alternative synthetic pathways against a defined set of
+        measurable criteria rather than selecting routes on synthetic novelty or yield alone. Criteria
+        typically include step count, overall yield, PMI, E-factor, solvent EHS ranking, reagent
+        hazard, purification burden (chromatography vs. crystallization), and scalability.
+        <sup><a href="#ref3">[3]</a></sup> Route comparison at an early stage—before large-scale
+        investment—allows identification of which design choices most strongly affect the environmental
+        and cost profile of a process.
+      </p>
+      <p>
+        Because solvents dominate PMI in most pharmaceutical routes, identifying whether a safer
+        solvent can be substituted without penalty to yield or selectivity is often the single most
+        effective route optimization available.<sup><a href="#ref6">[6]</a></sup> Protecting groups,
+        chromatographic purifications, and stoichiometric reagents are the next most common targets.
+      </p>
+
+      <!-- ── Systematic route design checklist (§3.6) ── -->
+      <div class="metrics-table-wrap" style="margin-top:14px;">
+        <p class="metrics-table-title"><b>Table 4.</b> Checklist questions used in systematic pharmaceutical route design and their relevance to green chemistry metrics.<sup><a href="#ref3">[3]</a><a href="#ref6">[6]</a></sup></p>
+        <table class="comparison-table metrics-tbl">
+          <thead>
+            <tr>
+              <th style="background:#eaecf0;color:#202122;">Design question</th>
+              <th style="background:#eaecf0;color:#202122;">Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Can a protecting group be avoided?</td>
+              <td>Reduces step count and by-products; each protection/deprotection sequence adds reagents and solvents without incorporating atoms into the target</td>
+            </tr>
+            <tr>
+              <td>Can a catalytic method replace a stoichiometric reagent?</td>
+              <td>Catalyst is not consumed per cycle; reagent-derived waste decreases with catalyst loading</td>
+            </tr>
+            <tr>
+              <td>Can chromatography be replaced by crystallization?</td>
+              <td>Chromatographic purification uses large solvent volumes and is difficult to scale; crystallization typically has a lower PMI contribution</td>
+            </tr>
+            <tr>
+              <td>Can a common intermediate serve multiple analogs?</td>
+              <td>Reduces repeated synthesis; supports late-stage diversification from a shared scaffold, lowering cumulative waste per analog</td>
+            </tr>
+            <tr>
+              <td>Can the route tolerate safer solvents?</td>
+              <td>Replacing a hazardous solvent is the largest single PMI and EHS lever in most pharmaceutical routes</td>
+            </tr>
+            <tr>
+              <td>Can by-products be recovered or recycled?</td>
+              <td>Recoverable by-products reduce net waste and may offset raw material costs; non-recoverable ones add treatment burden</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="section-heading" id="renewable">3.7&nbsp;&nbsp;Renewable feedstocks and design for degradation</h3>
+      <p>
+        Principle 7 of the twelve principles calls for using renewable raw materials and feedstocks
+        wherever technically and economically practicable. In pharmaceutical synthesis this applies to
+        both solvents and starting materials. Bio-derived solvents such as 2-methyltetrahydrofuran
+        (2-MeTHF, from furfural derived from agricultural residues) and cyrene (dihydrolevoglucosenone,
+        from cellulose) have been investigated as replacements for petroleum-derived solvents such as
+        THF and NMP.<sup><a href="#ref1">[1]</a></sup> Fermentation-derived starting materials and
+        enzyme-produced intermediates—including 6-APA—illustrate how biological production can
+        substitute for synthetic routes from petrochemical precursors.
+      </p>
+      <p>
+        Renewable origin alone does not guarantee a lower environmental impact. Solvent recovery
+        efficiency, aquatic toxicity, biodegradability, and lifecycle energy demand of the upstream
+        agricultural or fermentation process all affect the net environmental profile.
+        <sup><a href="#ref3">[3]</a></sup> A bio-derived solvent that cannot be efficiently recovered
+        and is acutely toxic to aquatic organisms may perform worse than a well-recovered
+        petroleum-derived alternative on some EHS criteria. Full lifecycle assessment is required to
+        make defensible comparisons.
+      </p>
+      <p>
+        Principle 10 (design for degradation) applies differently to pharmaceutical products than to
+        commodity chemicals. A drug must remain stable through synthesis, purification, formulation,
+        storage, patient administration, and the duration of its biological activity. At the same time,
+        unnecessary environmental persistence—for example, accumulation of active pharmaceutical
+        ingredients in surface water—is undesirable from a sustainability standpoint. The tension
+        between required molecular stability and environmental degradation is a recognized challenge
+        in pharmaceutical sustainability and is not easily resolved through route design
+        alone.<sup><a href="#ref1">[1]</a><a href="#ref5">[5]</a></sup>
+      </p>
+
+      <!-- ── Table 4 – Route design comparison ── -->
       <div class="metrics-table-wrap" style="margin-top:18px;">
-        <p class="metrics-table-title"><b>Table 2.</b> Common risk points in medicinal-chemistry synthesis and corresponding greener route-design strategies. The actual benefit depends on measured process data.<sup><a href="#ref1">[1]</a><a href="#ref2">[2]</a><a href="#ref3">[3]</a></sup></p>
+        <p class="metrics-table-title"><b>Table 5.</b> Common risk points in medicinal-chemistry synthesis and corresponding greener route-design strategies. The actual benefit depends on measured process data.<sup><a href="#ref1">[1]</a><a href="#ref2">[2]</a><a href="#ref3">[3]</a></sup></p>
         <table class="comparison-table metrics-tbl">
           <thead>
             <tr>
@@ -995,8 +1190,8 @@
         <i>Penicillium chrysogenum</i>. 6-APA is used as the core intermediate for semisynthetic
         β-lactam antibiotics: reacylation of the free amine with different acyl chlorides or
         mixed anhydrides gives ampicillin, amoxicillin, and related compounds.
-        <sup><a href="#ref7">[7]</a></sup> Industrial production is estimated at several thousand
-        tonnes per year.
+        <sup><a href="#ref7">[7]</a></sup> 6-APA is produced on industrial scale and is one of the
+        major intermediates used in semisynthetic penicillin manufacture.
       </p>
 
       <!-- ── Figure 3 – 6-APA 3D model ── -->
@@ -1045,6 +1240,52 @@
         from the hydrolysis step, and produces phenylacetic acid as a recoverable by-product. It has
         become the dominant industrial process for 6-APA manufacture.<sup><a href="#ref7">[7]</a></sup>
       </p>
+
+      <!-- ── 6-APA route comparison table ── -->
+      <div class="metrics-table-wrap" style="margin-top:14px;">
+        <p class="metrics-table-title"><b>Table 6.</b> Comparison of earlier chemical deacylation route and enzymatic PGA route for 6-APA production. A rigorous environmental comparison requires full PMI and E-factor data covering all upstream and downstream steps.<sup><a href="#ref7">[7]</a><a href="#ref3">[3]</a></sup></p>
+        <table class="comparison-table metrics-tbl">
+          <thead>
+            <tr>
+              <th style="background:#eaecf0;color:#202122;">Feature</th>
+              <th style="background:#eaecf0;color:#202122;">Earlier chemical route</th>
+              <th style="background:#eaecf0;color:#202122;">Enzymatic PGA route</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Main transformation</td>
+              <td>Chemical deacylation of penicillin G using reactive silyl or phosphoryl intermediates</td>
+              <td>Selective enzymatic amide hydrolysis by penicillin G acylase (EC 3.5.1.11)</td>
+            </tr>
+            <tr>
+              <td>Protection / deprotection</td>
+              <td>Required; carboxyl and amine groups must be protected before deacylation</td>
+              <td>Generally avoided; enzyme active-site selectivity replaces protecting-group strategy</td>
+            </tr>
+            <tr>
+              <td>Solvent / conditions</td>
+              <td>Anhydrous chlorinated solvent (e.g., methylene chloride); near −40 °C</td>
+              <td>Aqueous buffer, pH 7–8; 25–35 °C; no organic solvent required in the hydrolysis step</td>
+            </tr>
+            <tr>
+              <td>By-products</td>
+              <td>Silylated or phosphorylated by-products from protecting-group chemistry</td>
+              <td>Phenylacetic acid; recoverable and reusable as a substrate in subsequent penicillin G fermentation</td>
+            </tr>
+            <tr>
+              <td>Green chemistry lesson</td>
+              <td>Effective but material-intensive; chlorinated solvent and cryogenic energy both contribute to process burden</td>
+              <td>Biocatalysis can reduce solvent volume and eliminate protecting-group steps in a targeted hydrolysis</td>
+            </tr>
+            <tr>
+              <td>Remaining assessment need</td>
+              <td>Full mass balance and waste accounting not commonly reported for the legacy route</td>
+              <td>Downstream crystallization, enzyme lifetime, aqueous waste treatment, and fermentation energy still require assessment for a complete comparison</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3 class="section-heading" id="casestudy-nuance">4.3&nbsp;&nbsp;Process assessment</h3>
       <p>
